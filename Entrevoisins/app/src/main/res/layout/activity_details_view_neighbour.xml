@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_details_view_neighbour">
+    android:background="#83B3B3B3"
+    tools:context=".ui.neighbour_list.activity_details_view_neighbour">
 
     <ImageView
         android:id="@+id/photoProfil"
@@ -24,6 +25,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/photoProfil"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -34,6 +36,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        android:background="#FFFFFF"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +80,7 @@
         android:layout_height="124dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:background="#FFFFFF"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,4 +100,36 @@
             android:inputType="textPersonName"
             android:text="Name" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/etoile"
+        android:layout_width="51dp"
+        android:layout_height="51dp"
+        android:background="@drawable/ic_star_white_24dp"
+        android:backgroundTint="#2D2F31"
+
+        app:icon="@drawable/ic_star_white_24dp"
+        app:iconTint="#FFC107"
+        tools:layout_editor_absoluteX="332dp"
+        tools:layout_editor_absoluteY="293dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top" />
 </android.support.constraint.ConstraintLayout>
