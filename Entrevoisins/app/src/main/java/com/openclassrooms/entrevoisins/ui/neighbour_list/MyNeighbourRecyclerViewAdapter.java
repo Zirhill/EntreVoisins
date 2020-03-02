@@ -66,8 +66,8 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         holder.mNeighbourContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ListNeighbourActivity.this, activity_details_view_neighbour.class);
-                startActivity(intent);
+                Intent intent = new Intent(v.getContext(), activity_details_view_neighbour.class);
+                startActivity(v.getContext(),intent,null);
             }
 
         });
