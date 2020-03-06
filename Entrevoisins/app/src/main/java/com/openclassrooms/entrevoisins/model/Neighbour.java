@@ -25,14 +25,24 @@ public class Neighbour {
     /** About me */
     private String aboutMe;
 
+    //Favotite
+    private  Boolean  favoris = false;
+
+
+
+
     /**
      * Constructor
      * @param id
      * @param name
      * @param avatarUrl
+     * @param favoris
      */
-    public Neighbour(long id, String name, String avatarUrl, String address,
-                     String phoneNumber, String aboutMe) {
+
+    public Neighbour() {
+    }
+
+    public Neighbour(long id, String name, String avatarUrl, String address, String phoneNumber, String aboutMe) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
@@ -59,6 +69,14 @@ public class Neighbour {
 
     public String getAvatarUrl() {
         return avatarUrl;
+    }
+
+    public Boolean getFavoris() {
+        return favoris;
+    }
+
+    public void setFavoris(Boolean favoris) {
+        this.favoris = favoris;
     }
 
     public void setAvatarUrl(String avatarUrl) {
@@ -89,16 +107,5 @@ public class Neighbour {
         this.aboutMe = aboutMe;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Neighbour neighbour = (Neighbour) o;
-        return Objects.equals(id, neighbour.id);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
