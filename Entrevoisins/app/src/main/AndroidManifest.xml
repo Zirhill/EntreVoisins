@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.neighbour_list.ActivityDetailsViewNeighbour"
+            android:name=".ui.neighbour_list.DetailsViewNeighbourActivity"
             android:label="Details View" />
         <activity
             android:name=".ui.neighbour_list.AddNeighbourActivity"
