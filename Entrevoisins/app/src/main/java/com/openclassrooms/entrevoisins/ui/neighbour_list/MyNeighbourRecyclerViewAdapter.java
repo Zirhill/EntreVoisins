@@ -61,20 +61,12 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
 
         });
 
-
-
         // methode commencer samedi
         holder.mNeighbourContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), DetailsViewNeighbourActivity.class);
                 intent.putExtra(KEY_NEIGHBOUR,neighbour);
-//                intent.putExtra("passName",neighbour.getName().toString());
-//                intent.putExtra("passAdress",neighbour.getAddress().toString());
-//                intent.putExtra("passPhone",neighbour.getPhoneNumber().toString());
-//                intent.putExtra("passMail",neighbour.getAboutMe().toString());
-//                intent.putExtra("passApropos",neighbour.getAboutMe().toString());
-//                intent.putExtra("passPhoto",neighbour.getAvatarUrl().toString());
 
                 startActivity(v.getContext(),intent,null);
             }

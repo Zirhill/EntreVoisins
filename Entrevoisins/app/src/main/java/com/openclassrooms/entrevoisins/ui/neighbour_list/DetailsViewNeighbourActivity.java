@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
@@ -20,55 +23,72 @@ import java.net.URL;
 import java.net.URLDecoder;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class DetailsViewNeighbourActivity extends AppCompatActivity {
 
-    private static final String KEY_NEIGHBOUR = "KEY_NEIGHBOUR";
 
-    private TextView nameTv, adresse_tv, phone_tv, mail_tv, apropos_tv, name_white;
-    private ImageView photo_profil;
+    @BindView(R.id.textView_name)
+    TextView nameTv;
+    @BindView(R.id.adresse_tv)
+    TextView adresseTv;
+    @BindView(R.id.phone_tv)
+    TextView phoneTv;
+    @BindView(R.id.mail_tv)
+    TextView mailTv;
+    @BindView(R.id.apropos_tv)
+    TextView aproposTv;
+    @BindView(R.id.name_white)
+    TextView nameWhite;
+
+    @BindView(R.id.favoris_button)
+    FloatingActionButton favorisButton;
+
+    @BindView(R.id.photo_profil)
+    ImageView photo_profil;
+
+    private static final String KEY_NEIGHBOUR = "KEY_NEIGHBOUR";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_view_neighbour);
+        ButterKnife.bind(this);
 
 
-        name_white = findViewById(R.id.name_white);
-        nameTv = findViewById(R.id.textView_name);
-        adresse_tv = findViewById(R.id.adresse_tv);
-        phone_tv = findViewById(R.id.phone_tv);
-        mail_tv = findViewById(R.id.mail_tv);
-        apropos_tv = findViewById(R.id.apropos_tv);
-        photo_profil = findViewById(R.id.photo_profil);
 
         Neighbour neighbour;
         neighbour = getIntent().getParcelableExtra(KEY_NEIGHBOUR);
 
-        name_white.setText(neighbour.getName());
+        nameWhite.setText(neighbour.getName());
         nameTv.setText(neighbour.getName());
-        adresse_tv.setText(neighbour.getAddress());
-        phone_tv.setText(neighbour.getPhoneNumber());
-        mail_tv.setText("www.facebook.fr/" + (neighbour.getName()));
-        apropos_tv.setText((neighbour.getAboutMe()));
-        //photo_profil.setImageURI(Uri.parse(photo));
+        adresseTv.setText(neighbour.getAddress());
+        phoneTv.setText(neighbour.getPhoneNumber());
+        mailTv.setText("www.facebook.fr/" + (neighbour.getName()));
+        aproposTv.setText((neighbour.getAboutMe()));
+        Glide.with(this).load(neighbour.getAvatarUrl()).into(photo_profil);
 
-//        String name = (String) getIntent().getExtras().get("passName");
-//        String adress = (String) getIntent().getExtras().get("passAdress");
-//        String phone = (String) getIntent().getExtras().get("passPhone");
-//        String mail = (String) getIntent().getExtras().get("passName");
-//        String apropos = (String) getIntent().getExtras().get("passApropos");
-//        String photo = (String) getIntent().getExtras().get("passPhoto");
+        favorisButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if( neighbour.getFavoris()==true){
+                    neighbour.setFavoris(false);
+
+                }
+                else { neighbour.setFavoris(true);
+
+                }
 
 
-//        nameTv.setText(name);
-//        adresse_tv.setText(adress);
-//        phone_tv.setText(phone);
-//        mail_tv.setText("www.facebook.fr/" + name);
-//        apropos_tv.setText(apropos);
-        //photo_profil.setImageURI(Uri.parse(photo));
-        //photo_profil.setImageBitmap(getBitmapFromURL(photo));
+
+
+
+
+            }
+        });
     }
+
+
 
 
 }
