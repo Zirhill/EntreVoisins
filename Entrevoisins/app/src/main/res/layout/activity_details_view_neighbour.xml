@@ -7,6 +7,16 @@
     android:background="#83B3B3B3"
     tools:context=".ui.neighbour_list.DetailsViewNeighbourActivity">
 
+    <Button
+        android:id="@+id/btn_retour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@android:drawable/button_onoff_indicator_off"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/photo_profil"
         android:layout_width="match_parent"
@@ -16,17 +26,15 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/favoris_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="547dp"
         android:layout_marginEnd="50dp"
-        android:background="@drawable/button_favoris"
-        app:srcCompat="@drawable/button_favoris"
-        android:tint="#FDC827"
-        android:backgroundTint="#E4E4E4"
+        android:src="@drawable/ic_star_white_24dp"
+        android:tint="#FFEB3B"
+        android:backgroundTint="#EDEDED"
         android:clickable="true"
         android:hapticFeedbackEnabled="true"
         app:layout_constraintBottom_toBottomOf="@+id/photo_profil"
@@ -34,6 +42,8 @@
         app:layout_constraintTop_toBottomOf="@+id/photo_profil"
         app:layout_constraintVertical_bias="0.0"
          />
+
+
 
     <TextView
                 android:id="@+id/name_white"

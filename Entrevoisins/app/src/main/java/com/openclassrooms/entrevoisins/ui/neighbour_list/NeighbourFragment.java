@@ -62,6 +62,7 @@ public class NeighbourFragment extends Fragment {
      */
     private void initList() {
         mNeighbours = mApiService.getNeighbours();
+        mFNeighbours = mApiService.getNeighbours(); // test
         mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours));
     }
 
@@ -105,4 +106,9 @@ public class NeighbourFragment extends Fragment {
         mApiService.deleteNeighbour(event.neighbour);
         initList();
     }
+
+   public void addNeighbourToFavorite(Neighbour neighbour){
+
+              mFNeighbours.add(neighbour);
+   }
 }

@@ -39,6 +39,8 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
     @Override
     public void addNeighbourToFavorite(Neighbour neighbour) {
-        neighbours.add(neighbour);
+
     }
+
+
 }
